@@ -1,0 +1,249 @@
+Last login: Tue Nov  8 10:41:09 on ttys000
+(base) admin@Admins-MacBook-Air-3 ~ % cd Desktop/UW\ MSTI/Quarter\ 1/Tech\ Foundations 
+(base) admin@Admins-MacBook-Air-3 Tech Foundations % python cli.py                                    
+python: can't open file 'cli.py': [Errno 2] No such file or directory
+(base) admin@Admins-MacBook-Air-3 Tech Foundations % ls
+Assignment 2.ipynb			Lecture 5.ipynb				lec5_unittest.py
+Assignment 3.ipynb			Lecture1_in_class_notebook.ipynb	lecture5
+Assignment 4.ipynb			Mavis_assignment4			week5
+Assignment1.ipynb			Week4Demo				week5lab
+Class practice 1.ipynb			assignment_4_submission			words
+Lecture 2.ipynb				debug.txt
+Lecture 3.ipynb				example.txt
+(base) admin@Admins-MacBook-Air-3 Tech Foundations % cd week5lab 
+(base) admin@Admins-MacBook-Air-3 week5lab % python cli.py
+
+
+-------------------------------
+Welcome to Tic-Tac-Toe!!
+-------------------------------
+Rules of the game:
+Player 1 has symbol X
+Player 2 has symbol O (Capital O)
+
+
+-------------------------------
+
+
+Current board:
+[None, None, None]
+[None, None, None]
+[None, None, None]
+
+TODO: take a turn! Player  X
+
+Board square positions available to pick (the # ones are taken, you can pick any of the numbers):
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 9]
+
+==> Player  X
+Choose a position to add your symbol: 1
+
+
+-------------------------------
+
+
+Current board:
+['X', None, None]
+[None, None, None]
+[None, None, None]
+
+TODO: take a turn! Player  O
+
+Board square positions available to pick (the # ones are taken, you can pick any of the numbers):
+['#', 2, 3]
+[4, 5, 6]
+[7, 8, 9]
+
+==> Player  O
+Choose a position to add your symbol: 2
+
+
+-------------------------------
+
+
+Current board:
+['X', 'O', None]
+[None, None, None]
+[None, None, None]
+
+TODO: take a turn! Player  X
+
+Board square positions available to pick (the # ones are taken, you can pick any of the numbers):
+['#', '#', 3]
+[4, 5, 6]
+[7, 8, 9]
+
+==> Player  X
+Choose a position to add your symbol: 4
+
+
+-------------------------------
+
+
+Current board:
+['X', 'O', None]
+['X', None, None]
+[None, None, None]
+
+TODO: take a turn! Player  O
+
+Board square positions available to pick (the # ones are taken, you can pick any of the numbers):
+['#', '#', 3]
+['#', 5, 6]
+[7, 8, 9]
+
+==> Player  O
+Choose a position to add your symbol: 3
+
+
+-------------------------------
+
+
+Current board:
+['X', 'O', 'O']
+['X', None, None]
+[None, None, None]
+
+TODO: take a turn! Player  X
+
+Board square positions available to pick (the # ones are taken, you can pick any of the numbers):
+['#', '#', '#']
+['#', 5, 6]
+[7, 8, 9]
+
+==> Player  X
+Choose a position to add your symbol: 7
+
+---------------------------------------------
+--------- Yayyy, player  X  won! ------------
+---------------------------------------------
+(base) admin@Admins-MacBook-Air-3 week5lab % python cli.py
+
+
+-------------------------------
+Welcome to Tic-Tac-Toe!!
+-------------------------------
+Rules of the game:
+Player 1 has symbol X
+Player 2 has symbol O (Capital O)
+
+
+-------------------------------
+
+
+Current board:
+[None, None, None]
+[None, None, None]
+[None, None, None]
+
+TODO: take a turn! Player  X
+
+Board square positions available to pick (the # ones are taken, you can pick any of the numbers):
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 9]
+
+==> Player  X
+Choose a position to add your symbol: 9
+
+
+-------------------------------
+
+
+Current board:
+[None, None, None]
+[None, None, None]
+[None, None, 'X']
+
+TODO: take a turn! Player  O
+
+Board square positions available to pick (the # ones are taken, you can pick any of the numbers):
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, '#']
+
+==> Player  O
+Choose a position to add your symbol: 7
+
+
+-------------------------------
+
+
+Current board:
+[None, None, None]
+[None, None, None]
+['O', None, 'X']
+
+TODO: take a turn! Player  X
+
+Board square positions available to pick (the # ones are taken, you can pick any of the numbers):
+[1, 2, 3]
+[4, 5, 6]
+['#', 8, '#']
+
+==> Player  X
+Choose a position to add your symbol: 8
+
+
+-------------------------------
+
+
+Current board:
+[None, None, None]
+[None, None, None]
+['O', 'X', 'X']
+
+TODO: take a turn! Player  O
+
+Board square positions available to pick (the # ones are taken, you can pick any of the numbers):
+[1, 2, 3]
+[4, 5, 6]
+['#', '#', '#']
+
+==> Player  O
+Choose a position to add your symbol: 5
+
+
+-------------------------------
+
+
+Current board:
+[None, None, None]
+[None, 'O', None]
+['O', 'X', 'X']
+
+TODO: take a turn! Player  X
+
+Board square positions available to pick (the # ones are taken, you can pick any of the numbers):
+[1, 2, 3]
+[4, '#', 6]
+['#', '#', '#']
+
+==> Player  X
+Choose a position to add your symbol: 6
+
+
+-------------------------------
+
+
+Current board:
+[None, None, None]
+[None, 'O', 'X']
+['O', 'X', 'X']
+
+TODO: take a turn! Player  O
+
+Board square positions available to pick (the # ones are taken, you can pick any of the numbers):
+[1, 2, 3]
+[4, '#', '#']
+['#', '#', '#']
+
+==> Player  O
+Choose a position to add your symbol: 3
+
+---------------------------------------------
+--------- Yayyy, player  O  won! ------------
+---------------------------------------------
+(base) admin@Admins-MacBook-Air-3 week5lab % 
