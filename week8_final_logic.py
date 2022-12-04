@@ -1,6 +1,32 @@
 import sys
 import random
 import math
+import pandas as pd
+import os
+
+
+def print_game_stats():
+	print("\n\n~~~~~~~~~~~~~ Game stats ~~~~~~~~~~~~~")
+	game_data = pd.read_csv("/Users/admin/Desktop/UW MSTI/Quarter 1/Tech Foundations/week8hw/database.csv")
+	game_data = game_data.drop('Unnamed: 0', axis=1)
+	print("Total historic games = ", len(game_data))
+	total_games = len(game_data)
+	O_wins = len(game_data.loc[game_data['winner'] == 'O'])
+	X_wins = len(game_data.loc[game_data['winner'] == 'X'])
+	draws = len(game_data.loc[game_data['winner'] == 'Draw'])
+	print("Total wins of player O = ", O_wins, " -> ", (O_wins/total_games)*100 ,"%")
+	print("Total wins of player X = ", X_wins, " -> ", (X_wins/total_games)*100 ,"%")
+	print("Total number of draws = ", draws, " -> ", (draws/total_games)*100 ,"%")
+                                                                                                         
+
+
+games = pd.DataFrame(columns = [
+		"Player 1",
+		"Player 2",
+		"winner",
+		])
+
+games_filename = "/Users/admin/Desktop/UW MSTI/Quarter 1/Tech Foundations/week8hw/database.csv"
 
 class Board:
 
@@ -116,11 +142,22 @@ class Game:
 				print("\n---------------------------------------------")
 				print("--------- Yayyy, player ", self.turn , " won! Congratulations ------------")
 				print("---------------------------------------------")
+				games.loc[len(games.index)] = ['X', 'O', self.turn] 
 
-				sys.exit("Thank you for playing!!")
+				if not os.path.isfile(games_filename):
+   					games.to_csv(games_filename, header='column_names')
+
+				else: # else it exists so append without writing the header
+					games.to_csv(games_filename, mode = 'a', header=False)
+
+				print_game_stats()
+				sys.exit("\n\nThank you for playing!!")
 			move += 1
 			self.turn = self.other_player(self.turn)
 		print('Draw')
+		games.loc[len(games.index)] = ['X', 'O', 'Draw'] 
+		games.to_csv(games_filename, mode = 'a', header=False)
+
 
 
 
