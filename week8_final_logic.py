@@ -4,35 +4,35 @@ import math
 import pandas as pd
 import os
 
+games = pd.DataFrame(columns = [
+		"Player 1",
+		"Player 2",
+		"winner",
+		"winner_symbol",
+		])
+
+games_filename = "/Users/admin/Desktop/UW MSTI/Quarter 1/Tech Foundations/week8hw/database.csv"
 
 def print_game_stats():
 	print("\n\n~~~~~~~~~~~~~ Game stats ~~~~~~~~~~~~~")
-	game_data = pd.read_csv("/Users/admin/Desktop/UW MSTI/Quarter 1/Tech Foundations/week8hw/database.csv")
-	game_data = game_data.drop('Unnamed: 0', axis=1)
+	game_data = pd.read_csv(games_filename)
 	print("Total historic games = ", len(game_data))
 	total_games = len(game_data)
-	# O_wins = len(game_data.loc[game_data['winner'] == 'O'])
-	# X_wins = len(game_data.loc[game_data['winner'] == 'X'])
-	# draws = len(game_data.loc[game_data['winner'] == 'Draw'])
-	# print("Total wins of player O = ", O_wins, " -> ", (O_wins/total_games)*100 ,"%")
-	# print("Total wins of player X = ", X_wins, " -> ", (X_wins/total_games)*100 ,"%")
-	# print("Total number of draws = ", draws, " -> ", (draws/total_games)*100 ,"%")
+	O_wins = len(game_data.loc[game_data['winner_symbol'] == 'O'])
+	X_wins = len(game_data.loc[game_data['winner_symbol'] == 'X'])
+	draws = len(game_data.loc[game_data['winner_symbol'] == 'Draw'])
+	print("Total wins of symbol O = ", O_wins, " -> ", (O_wins/total_games)*100 ,"%")
+	print("Total wins of symbol X = ", X_wins, " -> ", (X_wins/total_games)*100 ,"%")
+	print("Total number of draws = ", draws, " -> ", (draws/total_games)*100 ,"%")
                                                                                        
 
 	game_stats = game_data['winner'].value_counts()
 
 	print("\nTop player ranking: ")
-	for i in range(0,len(game_stats.index)-1):
-		print("Rank ", i+1, " -> ", game_stats.index[i])                                                                                                     
+	for i in range(0,len(game_stats.index)):
+		print("Rank ", i+1, " -> ", game_stats.index[i].capitalize())                                                                                                     
 
 
-games = pd.DataFrame(columns = [
-		"Player 1",
-		"Player 2",
-		"winner",
-		])
-
-games_filename = "/Users/admin/Desktop/UW MSTI/Quarter 1/Tech Foundations/week8hw/database.csv"
 
 class Board:
 
@@ -145,20 +145,29 @@ class Game:
 			self.current.play(self.turn, self._board)
 			if self._board.get_winner():
 
-				print("\n---------------------------------------------")
-				print("--------- Yayyy, player ", self.turn , " won! Congratulations ------------")
-				print("---------------------------------------------")
+				
+
+				# code to automate the naming
+
 				names1 = ['simran', 'udiksha', 'raj', 'hritik', 'mavis']
 				names2 = ['sumedh', 'jungmin', 'sampada', 'zahra', 'charu', 'vivek']
-				# player1 = input("\n\nEnter name of player 1 ")
-				# player2 = input("\n\nEnter name of player 2 ")
 				player1 = random.choice(names1)
 				player2 = random.choice(names2)
+				
+				print("\n---------------------------------------------")
+				print("\n", player1.capitalize(), " VS ", player2.capitalize())
 
+				# player1 = input("\n\nEnter name of player 1 ")
+				# player2 = input("\n\nEnter name of player 2 ")
+				
 				if(self.turn == 'X'):
-					games.loc[len(games.index)] = [player1, player2, player1] 
+					games.loc[len(games.index)] = [player1, player2, player1, 'X'] 
+					print("\nYayyy, player ", player1.capitalize(), "with symbol X won! Congratulations ------------")
+					print("---------------------------------------------")
 				elif(self.turn == 'O'):
-					games.loc[len(games.index)] = [player1, player2, player2] 
+					print("\nYayyy, player ", player2.capitalize(), "with symbol O won! Congratulations ------------")
+					print("---------------------------------------------")
+					games.loc[len(games.index)] = [player1, player2, player2, 'O'] 
 
 
 				if not os.path.isfile(games_filename):
